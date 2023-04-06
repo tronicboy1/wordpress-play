@@ -17,13 +17,14 @@ services:
       - 3306
       - 33060
   wordpress:
-    build: ./
+    build: .
     ports:
       - 8080:80
     restart: always
     volumes:
-      - wp-contents:/var/www/html/wp-content
-    #  - ./src:/var/www/html
+      - wp-uploads:/var/www/html/wp-content/uploads
+      - ./src/themes:/var/www/html/wp-content/themes
+      - ./src/plugins:/var/www/html/wp-content/plugins
     environment:
       - WORDPRESS_DB_HOST=db
       - WORDPRESS_DB_USER=wordpress
@@ -31,4 +32,4 @@ services:
       - WORDPRESS_DB_NAME=wordpress
 volumes:
   db-data:
-  wp-contents:
+  wp-uploads:
