@@ -39,6 +39,7 @@
               "outputHashing": "none"
             },
             "development": {
+              "index": "projects/ngwc-hello-world/src/index.html",
               "buildOptimizer": false,
               "optimization": false,
               "vendorChunk": true,
@@ -115,11 +116,10 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "none",
-              "optimization": false,
-              "sourceMap": true,
+              "outputHashing": "none"
             },
             "development": {
+              "index": "projects/ngwc-routing/src/index.html",
               "buildOptimizer": false,
               "optimization": false,
               "vendorChunk": true,

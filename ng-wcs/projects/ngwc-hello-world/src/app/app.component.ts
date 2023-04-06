@@ -10,6 +10,6 @@ export class AppComponent {
 
   @HostListener('click')
   handleClick() {
-    console.log('clicked')
+    console.log('click')
   }
 }

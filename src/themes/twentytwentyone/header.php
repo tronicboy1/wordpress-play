@@ -20,6 +20,14 @@
 	<meta charset="<?php bloginfo('charset'); ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<?php wp_head(); ?>
+	<?php
+
+	wp_enqueue_script('hello-world-wc');
+	// wp_enqueue_script('ngwc-hello-world');
+	do_action('render_wc_scripts', 'ngwc-hello-world');
+	do_action('render_wc_scripts', 'ngwc-routing');
+	do_action('render_wc_scripts', 'litwc-hello-world');
+	?>
 </head>
 
 <body <?php body_class(); ?>>
