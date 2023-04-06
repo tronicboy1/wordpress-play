@@ -14,15 +14,12 @@
           "builder": "@angular-devkit/build-angular:browser-esbuild",
           "options": {
             "outputPath": "../src/plugins/austin-wc-plugin/public/js/ngwc-hello-world",
-            "index": "projects/ngwc-hello-world/src/index.html",
+            "index": "",
             "main": "projects/ngwc-hello-world/src/main.ts",
             "polyfills": [],
             "tsConfig": "projects/ngwc-hello-world/tsconfig.app.json",
-            "assets": [
-              "projects/ngwc-hello-world/src/favicon.ico",
-              "projects/ngwc-hello-world/src/assets"
-            ],
-            "styles": ["projects/ngwc-hello-world/src/styles.css"],
+            "assets": [],
+            "styles": [],
             "scripts": []
           },
           "configurations": {
@@ -93,22 +90,15 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-devkit/build-angular:browser-esbuild",
           "options": {
-            "outputPath": "dist/ngwc-routing",
-            "index": "projects/ngwc-routing/src/index.html",
+            "outputPath": "../src/plugins/austin-wc-plugin/public/js/ngwc-routing",
+            "index": "",
             "main": "projects/ngwc-routing/src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": [],
             "tsConfig": "projects/ngwc-routing/tsconfig.app.json",
-            "assets": [
-              "projects/ngwc-routing/src/favicon.ico",
-              "projects/ngwc-routing/src/assets"
-            ],
-            "styles": [
-              "projects/ngwc-routing/src/styles.css"
-            ],
+            "assets": [],
+            "styles": [],
             "scripts": []
           },
           "configurations": {
@@ -125,7 +115,9 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "none",
+              "optimization": false,
+              "sourceMap": true,
             },
             "development": {
               "buildOptimizer": false,
@@ -159,18 +151,13 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "projects/ngwc-routing/tsconfig.spec.json",
             "assets": [
               "projects/ngwc-routing/src/favicon.ico",
               "projects/ngwc-routing/src/assets"
             ],
-            "styles": [
-              "projects/ngwc-routing/src/styles.css"
-            ],
+            "styles": ["projects/ngwc-routing/src/styles.css"],
             "scripts": []
           }
         }

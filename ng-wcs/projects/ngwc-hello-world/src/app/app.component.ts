@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, HostListener, Input } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,9 @@ import { Component, Input } from '@angular/core';
 })
 export class AppComponent {
   @Input() name = 'User';
+
+  @HostListener('click')
+  handleClick() {
+    console.log('clicked')
+  }
 }
