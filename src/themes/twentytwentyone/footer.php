@@ -78,6 +78,8 @@
 <?php
 
 wp_enqueue_script('hello-world-wc');
+// wp_enqueue_script('ngwc-hello-world');
+do_action('render_wc_scripts', 'ngwc-hello-world')
 ?>
 
 <?php wp_footer(); ?>

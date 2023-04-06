@@ -12,12 +12,12 @@
 
 get_header();
 
-while (have_posts()) : the_post();
-	the_title();
-	the_content();
-endwhile;
+// while (have_posts()) : the_post();
+// 	the_title();
+// 	the_content();
+// endwhile;
 
-wp_reset_postdata();
+// wp_reset_postdata();
 
 /* Start the Loop */
 while (have_posts()) :
