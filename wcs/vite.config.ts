@@ -6,6 +6,7 @@ export default defineConfig({
   build: {
     outDir: "../src/plugins/austin-wc-plugin/public/js",
     emptyOutDir: false,
+    minify: true,
     lib: {
       entry: [
         "src/svelte/wc-svelte.svelte",

@@ -29,18 +29,7 @@
 	do_action('render_wc_scripts', 'litwc-hello-world');
 	do_action('render_wc_scripts', 'wc-svelte');
 	do_action('render_wc_scripts', 'wc-svelte-todo');
-
 	?>
-	<script type="importmap">
-		{
-			"imports": {
-				"lit": "https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js",
-				"lit/": "https://cdn.jsdelivr.net/npm/lit@2.7.0/",
-				"@lit/reactive-element/decorators/": "https://cdn.jsdelivr.net/npm/@lit/reactive-element@1.6.1/decorators/",
-				"rxjs": "https://unpkg.com/rxjs@7.8.0/dist/bundles/rxjs.umd.min.js"
-			}
-		}
-	</script>
 </head>
 
 <body <?php body_class(); ?>>

@@ -1,23 +1,22 @@
 import { css as m, LitElement as d, html as p } from "lit";
 import { property as u, state as h, query as f } from "lit/decorators.js";
-import { S as w, f as $, t as b, s as y, m as v, a as k, b as C } from "./takeUntil-f112e689.js";
-var _ = Object.defineProperty, g = Object.getOwnPropertyDescriptor, r = (c, i, t, o) => {
-  for (var e = o > 1 ? void 0 : o ? g(i, t) : i, l = c.length - 1, n; l >= 0; l--)
-    (n = c[l]) && (e = (o ? n(i, t, e) : n(e)) || e);
-  return o && e && _(i, t, e), e;
+var w = Object.defineProperty, $ = Object.getOwnPropertyDescriptor, r = (c, i, t, o) => {
+  for (var e = o > 1 ? void 0 : o ? $(i, t) : i, n = c.length - 1, l; n >= 0; n--)
+    (l = c[n]) && (e = (o ? l(i, t, e) : l(e)) || e);
+  return o && e && w(i, t, e), e;
 };
-const a = "litwc-hello-world";
+const { Subject: y, fromEvent: b, map: v, mergeMap: k, sampleTime: j, switchMap: C, takeUntil: _ } = rxjs, a = "litwc-hello-world";
 class s extends d {
   constructor() {
-    super(...arguments), this.name = "User", this.clicks = 0, this.teardown$ = new w();
+    super(...arguments), this.name = "User", this.clicks = 0, this.teardown$ = new y();
   }
   firstUpdated() {
-    $(this.input, "input").pipe(
-      b(this.teardown$),
-      y(500),
+    b(this.input, "input").pipe(
+      _(this.teardown$),
+      j(500),
       v(() => this.input.value.trim()),
-      k((t) => fetch(`https://jsonplaceholder.typicode.com/todos/${t}`)),
-      C((t) => t.json())
+      C((t) => fetch(`https://jsonplaceholder.typicode.com/todos/${t}`)),
+      k((t) => t.json())
     ).subscribe((t) => this.todo = t);
   }
   disconnectedCallback() {

@@ -1,8 +1,8 @@
 <svelte:options tag="wc-svelte-todo" />
 
 <script lang="ts">
-  import { filter, mergeMap, sampleTime, Subject, switchMap, takeUntil } from "rxjs";
-  import { SvelteSubject } from "@tronicboy/svelte-rxjs-subjects";
+  const { filter, mergeMap, sampleTime, Subject, switchMap, takeUntil } = rxjs;
+  import { SvelteSubject } from "./lib/svelte-subjects";
   import { onDestroy } from "svelte";
   const input$ = new SvelteSubject<string>();
   const teardown$ = new Subject<void>();
