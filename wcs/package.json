@@ -20,7 +20,8 @@
     "vite": "^4.2.0"
   },
   "dependencies": {
-    "@tronicboy/svelte-rxjs-subjects": "^0.0.1",
+    "@tronicboy/rxjs-operators": "^0.0.3",
+    "@tronicboy/svelte-rxjs-subjects": "^0.0.2",
     "lit": "^2.7.2",
     "rxjs": "^7.8.0"
   }

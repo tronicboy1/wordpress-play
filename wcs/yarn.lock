@@ -180,10 +180,17 @@
     svelte-hmr "^0.15.1"
     vitefu "^0.2.4"
 
-"@tronicboy/svelte-rxjs-subjects@^0.0.1":
-  version "0.0.1"
-  resolved "https://registry.yarnpkg.com/@tronicboy/svelte-rxjs-subjects/-/svelte-rxjs-subjects-0.0.1.tgz#f0c48ebea7bf6e10f31724ffada02a5e4ba241cf"
-  integrity sha512-484LbL7nBlMYjptQZwoUooHJqtiWN4koiTpSUMkY/bBHsehjhlXePVCbB0QZc7Y9jhLg/iT/oF+QqvixmZ1Mlw==
+"@tronicboy/rxjs-operators@^0.0.3":
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/@tronicboy/rxjs-operators/-/rxjs-operators-0.0.3.tgz#bd458775a62d897c41f27af4802b6bd0d43b15ee"
+  integrity sha512-ecFEUV0U4d9Z8SpEhi+wrMtLcNUOsOD+hJVsshd60hsBZI1WduKXAN0GoJuYNVb0UJRTE7fZCJA+Ug+rKvVm3Q==
+  dependencies:
+    rxjs "^7.8.0"
+
+"@tronicboy/svelte-rxjs-subjects@^0.0.2":
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/@tronicboy/svelte-rxjs-subjects/-/svelte-rxjs-subjects-0.0.2.tgz#cb38828018ec4130471964cc0f929e519d3e5188"
+  integrity sha512-8l1Ur4fIf78jWVD3k1B43jOb5CZ+41YrnK9vXBtpLbAO/GbEO3c3uTsIoz/x11Zm8h4NqKHhs1Kc2aDaLVgIsQ==
   dependencies:
     rxjs "^7.8.0"
 

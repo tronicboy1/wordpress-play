@@ -2,15 +2,15 @@
 
 <script lang="ts">
   const { map, mergeMap, sampleTime, switchMap, combineLatest, tap, catchError, of, from, shareReplay } = rxjs;
-  import { SvBehaviorSubject } from "./lib/svelte-subjects";
+  import { SvelteBehaviorSubject } from '@tronicboy/svelte-rxjs-subjects';
 
   type Post = { title: { rendered: string }; content: { rendered: string }; id: number };
   const baseUrl = () => new URL("/wp-json/wp/v2/posts", window.location.origin);
 
-  const pageNo$ = new SvBehaviorSubject(1);
-  const postsPerPage$ = new SvBehaviorSubject(5);
-  const order$ = new SvBehaviorSubject("desc");
-  const orderBy$ = new SvBehaviorSubject("date");
+  const pageNo$ = new SvelteBehaviorSubject(1);
+  const postsPerPage$ = new SvelteBehaviorSubject(5);
+  const order$ = new SvelteBehaviorSubject("desc");
+  const orderBy$ = new SvelteBehaviorSubject("date");
   const posts$ = combineLatest([pageNo$, postsPerPage$, order$, orderBy$]).pipe(
     sampleTime(100),
     map((values) => values.map(String)),

@@ -60,13 +60,14 @@ class TodoController
 
     $worker = new TodoDbWorker();
     $data = $worker->get($id);
+    if (!$data) return TodoController::make400Response('NotFound');
 
     return TodoController::make200Response($data);
   }
 
   static function post(WP_REST_Request $request)
   {
-    $body = $request->get_json_params();
+    $body = $request->get_body_params();
     $text = $body['text'];
     if (!$text) {
       return TodoController::make400Response('InvalidBody');
@@ -96,7 +97,8 @@ class TodoController
     return $response;
   }
 
-  static private function make200Response($data = 200) {
+  static private function make200Response($data = 200)
+  {
     $response = new WP_REST_Response($data);
     $response->set_status(200);
     return $response;
