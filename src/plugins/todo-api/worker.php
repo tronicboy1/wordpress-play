@@ -50,6 +50,12 @@ class TodoDbWorker
     return $this->wpdb->get_results($sql);
   }
 
+  public function get(int $id) {
+    $sql = "SELECT * FROM $this->table_name
+    WHERE id = $id";
+    return $this->wpdb->get_row($sql, 'OBJECT');
+  }
+
   public function create(array $data)
   {
     $this->wpdb->insert($this->table_name, $data);

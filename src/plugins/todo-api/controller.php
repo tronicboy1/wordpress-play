@@ -11,6 +11,13 @@ class TodoController
   {
     register_rest_route('todo/v1', '/todos', [
       'methods' => 'GET',
+      'callback' => 'Todo\TodoController::all',
+      'permission_callback' => function () {
+        return true;
+      }
+    ]);
+    register_rest_route('todo/v1', '/todos/(?P<id>\d+)', [
+      'methods' => 'GET',
       'callback' => 'Todo\TodoController::get',
       'permission_callback' => function () {
         return true;
@@ -32,7 +39,7 @@ class TodoController
     ]);
   }
 
-  static function get(WP_REST_Request $request)
+  static function all(WP_REST_Request $request)
   {
     $qp = $request->get_query_params();
     $page = array_key_exists('page', $qp) && is_numeric($qp['page']) ? intval($qp['page']) : 1;
@@ -42,6 +49,17 @@ class TodoController
 
     $worker = new TodoDbWorker();
     $data = $worker->all($page);
+
+    return TodoController::make200Response($data);
+  }
+
+  static function get(WP_REST_Request $request)
+  {
+    $params = $request->get_params();
+    $id = intval($params['id']);
+
+    $worker = new TodoDbWorker();
+    $data = $worker->get($id);
 
     return TodoController::make200Response($data);
   }
