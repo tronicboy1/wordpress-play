@@ -1,105 +1,100 @@
-import { S as x, i as C, a as q, b as r, s as M, e as _, c as k, j as R, n as b, k as T, l as v, m as B, o as $, h as f, p as w, q as D, t as L, d as y, g as N } from "./index-6f88ea70.js";
-const { Subject: U } = rxjs;
-class W extends U {
-  set(s) {
-    this.next(s);
-  }
-}
-function S(i) {
-  let s, l, e = (
+import { S as C, i as q, a as M, b as c, s as R, e as _, c as j, j as T, n as b, k as B, l as v, m as D, o as $, h as f, p as w, q as L, t as N, d as y, g as U } from "./index-3259abc3.js";
+import { S as W } from "./svelte-subjects-77548414.js";
+function S(a) {
+  let o, l, e = (
     /*$todo$*/
-    i[1].title + ""
+    a[1].title + ""
   ), u;
   return {
     c() {
-      s = _("article"), l = _("h1"), u = L(e);
+      o = _("article"), l = _("h1"), u = N(e);
     },
     m(n, p) {
-      r(n, s, p), y(s, l), y(l, u);
+      c(n, o, p), y(o, l), y(l, u);
     },
     p(n, p) {
       p & /*$todo$*/
       2 && e !== (e = /*$todo$*/
-      n[1].title + "") && N(u, e);
+      n[1].title + "") && U(u, e);
     },
     d(n) {
-      n && f(s);
+      n && f(o);
     }
   };
 }
-function z(i) {
-  let s, l, e, u, n, p, d, o = (
+function x(a) {
+  let o, l, e, u, n, p, m, s = (
     /*$todo$*/
-    i[1] && S(i)
+    a[1] && S(a)
   );
   return {
     c() {
-      s = _("h1"), s.textContent = "Todo Lookup", l = k(), e = _("input"), u = k(), o && o.c(), n = R(), this.c = b, T(e, "type", "number");
+      o = _("h1"), o.textContent = "Todo Lookup", l = j(), e = _("input"), u = j(), s && s.c(), n = T(), this.c = b, B(e, "type", "number");
     },
-    m(t, a) {
-      r(t, s, a), r(t, l, a), r(t, e, a), v(
+    m(t, i) {
+      c(t, o, i), c(t, l, i), c(t, e, i), v(
         e,
         /*$input$*/
-        i[0]
-      ), r(t, u, a), o && o.m(t, a), r(t, n, a), p || (d = B(
+        a[0]
+      ), c(t, u, i), s && s.m(t, i), c(t, n, i), p || (m = D(
         e,
         "input",
         /*input_input_handler*/
-        i[4]
+        a[4]
       ), p = !0);
     },
-    p(t, [a]) {
-      a & /*$input$*/
+    p(t, [i]) {
+      i & /*$input$*/
       1 && $(e.value) !== /*$input$*/
       t[0] && v(
         e,
         /*$input$*/
         t[0]
       ), /*$todo$*/
-      t[1] ? o ? o.p(t, a) : (o = S(t), o.c(), o.m(n.parentNode, n)) : o && (o.d(1), o = null);
+      t[1] ? s ? s.p(t, i) : (s = S(t), s.c(), s.m(n.parentNode, n)) : s && (s.d(1), s = null);
     },
     i: b,
     o: b,
     d(t) {
-      t && f(s), t && f(l), t && f(e), t && f(u), o && o.d(t), t && f(n), p = !1, d();
+      t && f(o), t && f(l), t && f(e), t && f(u), s && s.d(t), t && f(n), p = !1, m();
     }
   };
 }
-function A(i, s, l) {
+function z(a, o, l) {
   let e, u;
-  const { filter: n, mergeMap: p, sampleTime: d, Subject: o, switchMap: t, takeUntil: a } = rxjs, m = new W();
-  w(i, m, (c) => l(0, e = c));
-  const h = new o();
-  D(() => {
+  const { filter: n, mergeMap: p, sampleTime: m, Subject: s, switchMap: t, takeUntil: i } = rxjs, d = new W();
+  w(a, d, (r) => l(0, e = r));
+  const h = new s();
+  L(() => {
     h.next();
   });
-  const j = m.pipe(a(h), n(Boolean), d(500), t((c) => fetch(`https://jsonplaceholder.typicode.com/todos/${c}`)), p((c) => c.json()));
-  w(i, j, (c) => l(1, u = c));
+  const k = d.pipe(i(h), n(Boolean), m(500), t((r) => fetch(`https://jsonplaceholder.typicode.com/todos/${r}`)), p((r) => r.json()));
+  w(a, k, (r) => l(1, u = r));
   function E() {
-    e = $(this.value), m.set(e);
+    e = $(this.value), d.set(e);
   }
-  return [e, u, m, j, E];
+  return [e, u, d, k, E];
 }
-class F extends x {
-  constructor(s) {
+class A extends C {
+  constructor(o) {
     super();
     const l = document.createElement("style");
-    l.textContent = ":host{background-color:lightsalmon;display:block;padding:1rem}", this.shadowRoot.appendChild(l), C(
+    l.textContent = ":host{background-color:lightsalmon;display:block;padding:1rem}", this.shadowRoot.appendChild(l), q(
       this,
       {
         target: this.shadowRoot,
-        props: q(this.attributes),
+        props: M(this.attributes),
         customElement: !0
       },
-      A,
       z,
-      M,
+      x,
+      R,
       {},
       null
-    ), s && s.target && r(s.target, this, s.anchor);
+    ), o && o.target && c(o.target, this, o.anchor);
   }
 }
-customElements.define("wc-svelte-todo", F);
+customElements.define("wc-svelte-todo", A);
 export {
-  F as default
+  A as default
 };

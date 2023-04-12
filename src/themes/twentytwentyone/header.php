@@ -29,6 +29,7 @@
 	do_action('render_wc_scripts', 'litwc-hello-world');
 	do_action('render_wc_scripts', 'wc-svelte');
 	do_action('render_wc_scripts', 'wc-svelte-todo');
+	do_action('render_wc_scripts', 'wc-svelte-posts');
 	?>
 </head>
 

@@ -13,6 +13,7 @@ export default defineConfig({
         "src/lit/litwc-todo-lookup.ts",
         "src/lit/lit-hello.ts",
         "src/svelte/wc-svelte-todo.svelte",
+        "src/svelte/wc-svelte-posts.svelte"
       ],
       formats: ["es"],
     },

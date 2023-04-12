@@ -16,8 +16,10 @@ services:
     expose:
       - 3306
       - 33060
+    ports:
+      - 3306:3306
   wordpress:
-    build: .
+    image: wordpress
     ports:
       - 8080:80
     restart: always
@@ -31,6 +33,7 @@ services:
       - WORDPRESS_DB_USER=wordpress
       - WORDPRESS_DB_PASSWORD=wordpress
       - WORDPRESS_DB_NAME=wordpress
+      - WORDPRESS_DEBUG=1
 volumes:
   db-data:
   wp-uploads:

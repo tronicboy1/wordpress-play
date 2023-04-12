@@ -15,6 +15,7 @@ function register_wc_scripts()
   wp_register_script('wc-svelte', $url . 'wc-svelte.js', [], '0.0.0', true);
   wp_register_script('wc-svelte-todo', $url . 'wc-svelte-todo.js', ['rxjs'], '0.0.0', true);
   wp_register_script('rxjs', 'https://unpkg.com/rxjs@^7/dist/bundles/rxjs.umd.min.js', []);
+  wp_register_script('wc-svelte-posts', $url . 'wc-svelte-posts.js', ['rxjs'], '0.0.0', true);
 }
 add_action('init', 'register_wc_scripts');
 
