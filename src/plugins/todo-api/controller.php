@@ -23,12 +23,19 @@ class TodoController
         return true;
       }
     ]);
+    register_rest_route('todo/v1', '/todos/(?P<id>[\d]+)', [
+      'methods' => 'DELETE',
+      'callback' => 'Todo\TodoController::delete',
+      'permission_callback' => function () {
+        return true;
+      }
+    ]);
   }
 
   static function get(WP_REST_Request $request)
   {
     $qp = $request->get_query_params();
-    $page = array_key_exists('page', $qp) ? intval($qp['page']) : 1;
+    $page = array_key_exists('page', $qp) && is_numeric($qp['page']) ? intval($qp['page']) : 1;
     if ($page < 1) {
       return TodoController::make400Response('InvalidPage');
     }
@@ -36,9 +43,7 @@ class TodoController
     $worker = new TodoDbWorker();
     $data = $worker->all($page);
 
-    $response = new WP_REST_Response($data);
-    $response->set_status(200);
-    return $response;
+    return TodoController::make200Response($data);
   }
 
   static function post(WP_REST_Request $request)
@@ -52,15 +57,30 @@ class TodoController
     $worker = new TodoDbWorker();
     $worker->create(['text' => $text]);
 
-    $response = new WP_REST_Response();
-    $response->set_status(200);
-    return $response;
+    return TodoController::make200Response();
+  }
+
+  static function delete(WP_REST_Request $request)
+  {
+    $params = $request->get_params();
+    $id = intval($params['id']);
+
+    $worker = new TodoDbWorker();
+    $worker->destroy($id);
+
+    return TodoController::make200Response();
   }
 
   static private function make400Response($message = '')
   {
     $response = new WP_REST_Response($message);
     $response->set_status(400);
+    return $response;
+  }
+
+  static private function make200Response($data = 200) {
+    $response = new WP_REST_Response($data);
+    $response->set_status(200);
     return $response;
   }
 }

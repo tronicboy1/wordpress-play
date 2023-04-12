@@ -54,4 +54,8 @@ class TodoDbWorker
   {
     $this->wpdb->insert($this->table_name, $data);
   }
+
+  public function destroy(int $id) {
+    $this->wpdb->delete($this->table_name, ['id' => $id]);
+  }
 }
