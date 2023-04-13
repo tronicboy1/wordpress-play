@@ -1,38 +1,38 @@
-import { S as he, i as me, a as be, b as S, s as ge, e as c, c as w, t as I, n as ae, j as f, v as ie, d as a, k as re, w as te, l as A, m as _e, g as oe, h as U, r as ve, o as E, q as ke, x as se } from "./index-2f6ecf53.js";
-import { a as le } from "./index-ae6e79f2.js";
-import "./Observable-2c9a47b5.js";
-function ce(e, i, l) {
+import { S as be, i as ge, a as ve, b as R, s as ke, e as s, c as w, t as H, n as ne, j as d, v as se, d as a, k as ue, w as Z, l as A, m as me, g as ee, h as O, r as we, o as G, q as ye, x as ce } from "./index-2f6ecf53.js";
+import { combineLatest as ae, sampleTime as Pe, map as M, switchMap as Ce, mergeMap as Ne, catchError as je, of as xe, tap as Be, from as Ee, shareReplay as Se } from "rxjs";
+import { a as $ } from "./index-57368024.js";
+function pe(e, i, l) {
   const o = e.slice();
-  return o[38] = i[l], o;
+  return o[28] = i[l], o;
 }
-function ue(e) {
+function de(e) {
   let i, l = (
     /*$posts$*/
     e[3]
   ), o = [];
   for (let r = 0; r < l.length; r += 1)
-    o[r] = pe(ce(e, l, r));
+    o[r] = fe(pe(e, l, r));
   return {
     c() {
-      i = c("ul");
+      i = s("ul");
       for (let r = 0; r < o.length; r += 1)
         o[r].c();
-      f(i, "id", "posts");
+      d(i, "id", "posts");
     },
     m(r, u) {
-      S(r, i, u);
+      R(r, i, u);
       for (let n = 0; n < o.length; n += 1)
         o[n] && o[n].m(i, null);
     },
     p(r, u) {
-      if (u[0] & /*$posts$*/
+      if (u & /*$posts$*/
       8) {
         l = /*$posts$*/
         r[3];
         let n;
         for (n = 0; n < l.length; n += 1) {
-          const P = ce(r, l, n);
-          o[n] ? o[n].p(P, u) : (o[n] = pe(P), o[n].c(), o[n].m(i, null));
+          const P = pe(r, l, n);
+          o[n] ? o[n].p(P, u) : (o[n] = fe(P), o[n].c(), o[n].m(i, null));
         }
         for (; n < o.length; n += 1)
           o[n].d(1);
@@ -40,46 +40,46 @@ function ue(e) {
       }
     },
     d(r) {
-      r && U(i), ke(o, r);
+      r && O(i), ye(o, r);
     }
   };
 }
-function pe(e) {
+function fe(e) {
   let i, l, o, r, u = (
     /*post*/
-    e[38].title.rendered + ""
-  ), n, P, C, y, G;
+    e[28].title.rendered + ""
+  ), n, P, C, y, T;
   return {
     c() {
-      i = c("li"), l = c("a"), o = c("article"), r = c("h1"), n = I(u), P = w(), C = c("p"), G = w(), f(l, "href", y = "/archives/" + /*post*/
-      e[38].id);
+      i = s("li"), l = s("a"), o = s("article"), r = s("h1"), n = H(u), P = w(), C = s("p"), T = w(), d(l, "href", y = "/archives/" + /*post*/
+      e[28].id);
     },
-    m(_, p) {
-      S(_, i, p), a(i, l), a(l, o), a(o, r), a(r, n), a(o, P), a(o, C), a(i, G);
+    m(f, m) {
+      R(f, i, m), a(i, l), a(l, o), a(o, r), a(r, n), a(o, P), a(o, C), a(i, T);
     },
-    p(_, p) {
-      p[0] & /*$posts$*/
+    p(f, m) {
+      m & /*$posts$*/
       8 && u !== (u = /*post*/
-      _[38].title.rendered + "") && oe(n, u), p[0] & /*$posts$*/
+      f[28].title.rendered + "") && ee(n, u), m & /*$posts$*/
       8 && y !== (y = "/archives/" + /*post*/
-      _[38].id) && f(l, "href", y);
+      f[28].id) && d(l, "href", y);
     },
-    d(_) {
-      _ && U(i);
+    d(f) {
+      f && O(i);
     }
   };
 }
-function de(e) {
+function _e(e) {
   let i, l, o, r;
   return {
     c() {
-      i = c("button"), l = I(
+      i = s("button"), l = H(
         /*$lastPageNo$*/
         e[5]
-      ), f(i, "type", "button");
+      ), d(i, "type", "button");
     },
     m(u, n) {
-      S(u, i, n), a(i, l), o || (r = A(
+      R(u, i, n), a(i, l), o || (r = A(
         i,
         "click",
         /*click_handler_1*/
@@ -87,29 +87,29 @@ function de(e) {
       ), o = !0);
     },
     p(u, n) {
-      n[0] & /*$lastPageNo$*/
-      32 && oe(
+      n & /*$lastPageNo$*/
+      32 && ee(
         l,
         /*$lastPageNo$*/
         u[5]
       );
     },
     d(u) {
-      u && U(i), o = !1, r();
+      u && O(i), o = !1, r();
     }
   };
 }
-function fe(e) {
+function he(e) {
   let i, l, o, r;
   return {
     c() {
-      i = c("button"), l = I(
+      i = s("button"), l = H(
         /*$nextPageNo$*/
         e[8]
-      ), f(i, "type", "button");
+      ), d(i, "type", "button");
     },
     m(u, n) {
-      S(u, i, n), a(i, l), o || (r = A(
+      R(u, i, n), a(i, l), o || (r = A(
         i,
         "click",
         /*click_handler_2*/
@@ -117,62 +117,62 @@ function fe(e) {
       ), o = !0);
     },
     p(u, n) {
-      n[0] & /*$nextPageNo$*/
-      256 && oe(
+      n & /*$nextPageNo$*/
+      256 && ee(
         l,
         /*$nextPageNo$*/
         u[8]
       );
     },
     d(u) {
-      u && U(i), o = !1, r();
+      u && O(i), o = !1, r();
     }
   };
 }
-function we(e) {
-  let i, l, o, r, u, n, P, C, y, G, _, p, M, V, W, R, Y, k, T, F, L, x, h, N, q, j, m, B, Z, z, X, H, D, J, $, K, O, ne, Q, ee, t, d = (
+function Ge(e) {
+  let i, l, o, r, u, n, P, C, y, T, f, m, p, F, N, x, I, b, L, B, E, S, X, J, K, U, _, q, te, Q, t, j, W, V, D, le, z, ie, Y, oe, re, g = (
     /*$posts$*/
-    e[3] && ue(e)
-  ), b = (
+    e[3] && de(e)
+  ), v = (
     /*$canGoBack$*/
-    e[4] && de(e)
-  ), g = (
+    e[4] && _e(e)
+  ), k = (
     /*$canGoForward$*/
-    e[7] && fe(e)
+    e[7] && he(e)
   );
   return {
     c() {
-      i = c("nav"), l = c("ul"), o = c("li"), r = c("label"), r.textContent = "Posts Per Page", u = w(), n = c("input"), P = w(), C = c("li"), y = c("label"), y.textContent = "Order", G = w(), _ = c("select"), p = c("option"), p.textContent = "Desc", M = c("option"), M.textContent = "Asc", V = w(), W = c("li"), R = c("label"), R.textContent = "Order By", Y = w(), k = c("select"), T = c("option"), T.textContent = "Date", F = c("option"), F.textContent = "Id", L = c("option"), L.textContent = "Title", x = c("option"), x.textContent = "Slug", h = w(), N = c("ul"), N.innerHTML = "<li></li>", q = w(), d && d.c(), j = w(), m = c("nav"), B = c("button"), Z = I("Back"), X = w(), b && b.c(), H = w(), D = c("button"), J = I(
+      i = s("nav"), l = s("ul"), o = s("li"), r = s("label"), r.textContent = "Posts Per Page", u = w(), n = s("input"), P = w(), C = s("li"), y = s("label"), y.textContent = "Order", T = w(), f = s("select"), m = s("option"), m.textContent = "Desc", p = s("option"), p.textContent = "Asc", F = w(), N = s("li"), x = s("label"), x.textContent = "Order By", I = w(), b = s("select"), L = s("option"), L.textContent = "Date", B = s("option"), B.textContent = "Id", E = s("option"), E.textContent = "Title", S = s("option"), S.textContent = "Slug", X = w(), J = s("ul"), J.innerHTML = "<li></li>", K = w(), g && g.c(), U = w(), _ = s("nav"), q = s("button"), te = H("Back"), t = w(), v && v.c(), j = w(), W = s("button"), V = H(
         /*$pageNo$*/
         e[6]
-      ), $ = w(), g && g.c(), K = w(), O = c("button"), ne = I("Forward"), this.c = ae, f(r, "for", "per-page"), f(n, "type", "number"), f(n, "name", "per-page"), f(n, "id", "per-page"), f(n, "min", "1"), f(y, "for", "order"), p.__value = "desc", p.value = p.__value, M.__value = "asc", M.value = M.__value, f(_, "name", "order"), f(_, "id", "order"), /*$order$*/
-      e[1] === void 0 && ie(() => (
+      ), D = w(), k && k.c(), le = w(), z = s("button"), ie = H("Forward"), this.c = ne, d(r, "for", "per-page"), d(n, "type", "number"), d(n, "name", "per-page"), d(n, "id", "per-page"), d(n, "min", "1"), d(y, "for", "order"), m.__value = "desc", m.value = m.__value, p.__value = "asc", p.value = p.__value, d(f, "name", "order"), d(f, "id", "order"), /*$order$*/
+      e[1] === void 0 && se(() => (
         /*select0_change_handler*/
-        e[19].call(_)
-      )), f(R, "for", "order-by"), T.__value = "date", T.value = T.__value, F.__value = "id", F.value = F.__value, L.__value = "title", L.value = L.__value, x.__value = "slug", x.value = x.__value, f(k, "name", "order-by"), f(k, "id", "order-by"), /*$orderBy$*/
-      e[2] === void 0 && ie(() => (
+        e[19].call(f)
+      )), d(x, "for", "order-by"), L.__value = "date", L.value = L.__value, B.__value = "id", B.value = B.__value, E.__value = "title", E.value = E.__value, S.__value = "slug", S.value = S.__value, d(b, "name", "order-by"), d(b, "id", "order-by"), /*$orderBy$*/
+      e[2] === void 0 && se(() => (
         /*select1_change_handler*/
-        e[20].call(k)
-      )), B.disabled = z = !/*$canGoBack$*/
-      e[4], f(B, "type", "button"), f(D, "type", "button"), f(D, "class", "active"), O.disabled = Q = !/*$canGoForward$*/
-      e[7], f(O, "type", "button"), f(m, "id", "paginator");
+        e[20].call(b)
+      )), q.disabled = Q = !/*$canGoBack$*/
+      e[4], d(q, "type", "button"), d(W, "type", "button"), d(W, "class", "active"), z.disabled = Y = !/*$canGoForward$*/
+      e[7], d(z, "type", "button"), d(_, "id", "paginator");
     },
-    m(s, v) {
-      S(s, i, v), a(i, l), a(l, o), a(o, r), a(o, u), a(o, n), re(
+    m(c, h) {
+      R(c, i, h), a(i, l), a(l, o), a(o, r), a(o, u), a(o, n), ue(
         n,
         /*$postsPerPage$*/
         e[0]
-      ), a(l, P), a(l, C), a(C, y), a(C, G), a(C, _), a(_, p), a(_, M), te(
-        _,
+      ), a(l, P), a(l, C), a(C, y), a(C, T), a(C, f), a(f, m), a(f, p), Z(
+        f,
         /*$order$*/
         e[1],
         !0
-      ), a(l, V), a(l, W), a(W, R), a(W, Y), a(W, k), a(k, T), a(k, F), a(k, L), a(k, x), te(
-        k,
+      ), a(l, F), a(l, N), a(N, x), a(N, I), a(N, b), a(b, L), a(b, B), a(b, E), a(b, S), Z(
+        b,
         /*$orderBy$*/
         e[2],
         !0
-      ), a(i, h), a(i, N), S(s, q, v), d && d.m(s, v), S(s, j, v), S(s, m, v), a(m, B), a(B, Z), a(m, X), b && b.m(m, null), a(m, H), a(m, D), a(D, J), a(m, $), g && g.m(m, null), a(m, K), a(m, O), a(O, ne), ee || (t = [
+      ), a(i, X), a(i, J), R(c, K, h), g && g.m(c, h), R(c, U, h), R(c, _, h), a(_, q), a(q, te), a(_, t), v && v.m(_, null), a(_, j), a(_, W), a(W, V), a(_, D), k && k.m(_, null), a(_, le), a(_, z), a(z, ie), oe || (re = [
         A(
           n,
           "input",
@@ -180,112 +180,112 @@ function we(e) {
           e[18]
         ),
         A(
-          _,
+          f,
           "change",
           /*select0_change_handler*/
           e[19]
         ),
         A(
-          k,
+          b,
           "change",
           /*select1_change_handler*/
           e[20]
         ),
         A(
-          B,
+          q,
           "click",
           /*click_handler*/
           e[21]
         ),
         A(
-          O,
+          z,
           "click",
           /*click_handler_3*/
           e[24]
         )
-      ], ee = !0);
+      ], oe = !0);
     },
-    p(s, v) {
-      v[0] & /*$postsPerPage$*/
-      1 && _e(n.value) !== /*$postsPerPage$*/
-      s[0] && re(
+    p(c, [h]) {
+      h & /*$postsPerPage$*/
+      1 && me(n.value) !== /*$postsPerPage$*/
+      c[0] && ue(
         n,
         /*$postsPerPage$*/
-        s[0]
-      ), v[0] & /*$order$*/
-      2 && te(
-        _,
+        c[0]
+      ), h & /*$order$*/
+      2 && Z(
+        f,
         /*$order$*/
-        s[1]
-      ), v[0] & /*$orderBy$*/
-      4 && te(
-        k,
+        c[1]
+      ), h & /*$orderBy$*/
+      4 && Z(
+        b,
         /*$orderBy$*/
-        s[2]
+        c[2]
       ), /*$posts$*/
-      s[3] ? d ? d.p(s, v) : (d = ue(s), d.c(), d.m(j.parentNode, j)) : d && (d.d(1), d = null), v[0] & /*$canGoBack$*/
-      16 && z !== (z = !/*$canGoBack$*/
-      s[4]) && (B.disabled = z), /*$canGoBack$*/
-      s[4] ? b ? b.p(s, v) : (b = de(s), b.c(), b.m(m, H)) : b && (b.d(1), b = null), v[0] & /*$pageNo$*/
-      64 && oe(
-        J,
+      c[3] ? g ? g.p(c, h) : (g = de(c), g.c(), g.m(U.parentNode, U)) : g && (g.d(1), g = null), h & /*$canGoBack$*/
+      16 && Q !== (Q = !/*$canGoBack$*/
+      c[4]) && (q.disabled = Q), /*$canGoBack$*/
+      c[4] ? v ? v.p(c, h) : (v = _e(c), v.c(), v.m(_, j)) : v && (v.d(1), v = null), h & /*$pageNo$*/
+      64 && ee(
+        V,
         /*$pageNo$*/
-        s[6]
+        c[6]
       ), /*$canGoForward$*/
-      s[7] ? g ? g.p(s, v) : (g = fe(s), g.c(), g.m(m, K)) : g && (g.d(1), g = null), v[0] & /*$canGoForward$*/
-      128 && Q !== (Q = !/*$canGoForward$*/
-      s[7]) && (O.disabled = Q);
+      c[7] ? k ? k.p(c, h) : (k = he(c), k.c(), k.m(_, le)) : k && (k.d(1), k = null), h & /*$canGoForward$*/
+      128 && Y !== (Y = !/*$canGoForward$*/
+      c[7]) && (z.disabled = Y);
     },
-    i: ae,
-    o: ae,
-    d(s) {
-      s && U(i), s && U(q), d && d.d(s), s && U(j), s && U(m), b && b.d(), g && g.d(), ee = !1, ve(t);
+    i: ne,
+    o: ne,
+    d(c) {
+      c && O(i), c && O(K), g && g.d(c), c && O(U), c && O(_), v && v.d(), k && k.d(), oe = !1, we(re);
     }
   };
 }
-function ye(e, i, l) {
-  let o, r, u, n, P, C, y, G, _;
-  const { map: p, mergeMap: M, sampleTime: V, switchMap: W, combineLatest: R, tap: Y, catchError: k, of: T, from: F, shareReplay: L } = rxjs, x = () => new URL("/wp-json/wp/v2/posts", window.location.origin), h = new le(1);
-  E(e, h, (t) => l(6, y = t));
-  const N = new le(5);
-  E(e, N, (t) => l(0, o = t));
-  const q = new le("desc");
-  E(e, q, (t) => l(1, r = t));
-  const j = new le("date");
-  E(e, j, (t) => l(2, u = t));
-  const m = R([h, N, q, j]).pipe(
-    V(100),
-    p((t) => t.map(String)),
-    p(([t, d, b, g]) => {
-      const s = x();
-      return s.searchParams.set("page", t), s.searchParams.set("per_page", d), s.searchParams.set("order", b), s.searchParams.set("orderby", g), s;
+function Me(e, i, l) {
+  let o, r, u, n, P, C, y, T, f;
+  const m = () => new URL("/wp-json/wp/v2/posts", window.location.origin), p = new $(1);
+  G(e, p, (t) => l(6, y = t));
+  const F = new $(5);
+  G(e, F, (t) => l(0, o = t));
+  const N = new $("desc");
+  G(e, N, (t) => l(1, r = t));
+  const x = new $("date");
+  G(e, x, (t) => l(2, u = t));
+  const I = ae([p, F, N, x]).pipe(
+    Pe(100),
+    M((t) => t.map(String)),
+    M(([t, j, W, V]) => {
+      const D = m();
+      return D.searchParams.set("page", t), D.searchParams.set("per_page", j), D.searchParams.set("order", W), D.searchParams.set("orderby", V), D;
     }),
-    W((t) => fetch(t)),
-    M((t) => {
+    Ce((t) => fetch(t)),
+    Ne((t) => {
       if (!t.ok)
         throw Error();
       return t.json();
     }),
-    k((t, d) => (console.error(t), T([]))),
-    Y((t) => console.log("res: ", t))
+    je((t, j) => (console.error(t), xe([]))),
+    Be((t) => console.log("res: ", t))
   );
-  E(e, m, (t) => l(3, n = t));
-  const B = F(fetch(x())).pipe(p((t) => t.headers.get("X-WP-Total")), p(Number), L(1)), Z = R([N, B]).pipe(p(([t, d]) => Math.ceil(d / t))), z = R([h, Z]).pipe(p(([t, d]) => t < d));
-  E(e, z, (t) => l(7, G = t));
-  const X = h.pipe(p((t) => t > 1));
-  E(e, X, (t) => l(4, P = t));
-  const H = h.pipe(p((t) => t + 1));
-  E(e, H, (t) => l(8, _ = t));
-  const D = h.pipe(p((t) => t - 1));
-  E(e, D, (t) => l(5, C = t));
+  G(e, I, (t) => l(3, n = t));
+  const b = Ee(fetch(m())).pipe(M((t) => t.headers.get("X-WP-Total")), M(Number), Se(1)), L = ae([F, b]).pipe(M(([t, j]) => Math.ceil(j / t))), B = ae([p, L]).pipe(M(([t, j]) => t < j));
+  G(e, B, (t) => l(7, T = t));
+  const E = p.pipe(M((t) => t > 1));
+  G(e, E, (t) => l(4, P = t));
+  const S = p.pipe(M((t) => t + 1));
+  G(e, S, (t) => l(8, f = t));
+  const X = p.pipe(M((t) => t - 1));
+  G(e, X, (t) => l(5, C = t));
   function J() {
-    o = _e(this.value), N.set(o);
-  }
-  function $() {
-    r = se(this), q.set(r);
+    o = me(this.value), F.set(o);
   }
   function K() {
-    u = se(this), j.set(u);
+    r = ce(this), N.set(r);
+  }
+  function U() {
+    u = ce(this), x.set(u);
   }
   return [
     o,
@@ -295,47 +295,46 @@ function ye(e, i, l) {
     P,
     C,
     y,
-    G,
-    _,
-    h,
+    T,
+    f,
+    p,
+    F,
     N,
-    q,
-    j,
-    m,
-    z,
+    x,
+    I,
+    B,
+    E,
+    S,
     X,
-    H,
-    D,
     J,
-    $,
     K,
-    () => h.next(h.value - 1),
-    () => h.next(h.value - 1),
-    () => h.next(h.value + 1),
-    () => h.next(h.value + 1)
+    U,
+    () => p.next(p.value - 1),
+    () => p.next(p.value - 1),
+    () => p.next(p.value + 1),
+    () => p.next(p.value + 1)
   ];
 }
-class Pe extends he {
+class Re extends be {
   constructor(i) {
     super();
     const l = document.createElement("style");
-    l.textContent = ":host{display:block;width:90%;max-width:600px;margin:1rem auto;border:1px solid white;border-radius:4px;box-shadow:3px 3px 5px rgba(0, 0, 0, 0.164);padding:1rem;background-color:white}*{box-sizing:border-box}a{color:inherit;text-decoration:none}ul{list-style-type:none;margin:0;padding:0}#posts li{margin:1rem 0}#posts li:first-child{margin-top:0}#posts li:last-child{margin-bottom:0}nav{padding:0.5rem;border-bottom:1px solid lightgray;margin-bottom:1rem}nav ul{display:flex;flex-direction:row;justify-content:left}nav ul li{display:flex;flex-direction:column;margin:0 0.5rem}nav ul li:last-child{margin-right:0}nav ul li:first-child{margin-left:0}input,select{padding:0.25rem;border:1px solid lightgray;border-radius:4px;height:40px}#paginator{display:flex;flex-direction:row;justify-content:center}#paginator button{height:40px;border:1px solid lightgray;background-color:white;border-radius:4px;margin:0 0.5rem;min-width:60px}.active{background-color:lightgray !important}", this.shadowRoot.appendChild(l), me(
+    l.textContent = ":host{display:block;width:90%;max-width:600px;margin:1rem auto;border:1px solid white;border-radius:4px;box-shadow:3px 3px 5px rgba(0, 0, 0, 0.164);padding:1rem;background-color:white}*{box-sizing:border-box}a{color:inherit;text-decoration:none}ul{list-style-type:none;margin:0;padding:0}#posts li{margin:1rem 0}#posts li:first-child{margin-top:0}#posts li:last-child{margin-bottom:0}nav{padding:0.5rem;border-bottom:1px solid lightgray;margin-bottom:1rem}nav ul{display:flex;flex-direction:row;justify-content:left}nav ul li{display:flex;flex-direction:column;margin:0 0.5rem}nav ul li:last-child{margin-right:0}nav ul li:first-child{margin-left:0}input,select{padding:0.25rem;border:1px solid lightgray;border-radius:4px;height:40px}#paginator{display:flex;flex-direction:row;justify-content:center}#paginator button{height:40px;border:1px solid lightgray;background-color:white;border-radius:4px;margin:0 0.5rem;min-width:60px}.active{background-color:lightgray !important}", this.shadowRoot.appendChild(l), ge(
       this,
       {
         target: this.shadowRoot,
-        props: be(this.attributes),
+        props: ve(this.attributes),
         customElement: !0
       },
-      ye,
-      we,
-      ge,
+      Me,
+      Ge,
+      ke,
       {},
-      null,
-      [-1, -1]
-    ), i && i.target && S(i.target, this, i.anchor);
+      null
+    ), i && i.target && R(i.target, this, i.anchor);
   }
 }
-customElements.define("wc-svelte-posts", Pe);
+customElements.define("wc-svelte-posts", Re);
 export {
-  Pe as default
+  Re as default
 };

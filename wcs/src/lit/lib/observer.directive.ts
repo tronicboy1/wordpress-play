@@ -1,6 +1,6 @@
 import { directive } from "lit/directive.js";
 import { AsyncDirective } from "lit/async-directive.js";
-const { Subject, takeUntil } = rxjs;
+import { Subject, takeUntil } from "rxjs";
 import type { Observable } from "rxjs";
 import { noChange } from "lit";
 

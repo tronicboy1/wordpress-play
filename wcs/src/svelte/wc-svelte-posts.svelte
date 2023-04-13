@@ -1,7 +1,7 @@
 <svelte:options tag="wc-svelte-posts" />
 
 <script lang="ts">
-  const { map, mergeMap, sampleTime, switchMap, combineLatest, tap, catchError, of, from, shareReplay } = rxjs;
+  import { map, mergeMap, sampleTime, switchMap, combineLatest, tap, catchError, of, from, shareReplay } from "rxjs";
   import { SvelteBehaviorSubject } from '@tronicboy/svelte-rxjs-subjects';
 
   type Post = { title: { rendered: string }; content: { rendered: string }; id: number };

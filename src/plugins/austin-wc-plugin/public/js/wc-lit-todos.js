@@ -1,58 +1,35 @@
-import { noChange as f, css as x, LitElement as g, html as d } from "lit";
-import { query as w, customElement as v } from "lit/decorators.js";
-import { directive as k } from "lit/directive.js";
-import { AsyncDirective as j } from "lit/async-directive.js";
-import { f as y } from "./double-click-5ca33fd4.js";
-import "./Observable-2c9a47b5.js";
-const { Subject: L, takeUntil: N } = rxjs;
-class C extends j {
-  constructor() {
-    super(...arguments), this.disconnected$ = new L();
-  }
-  render(t) {
-    return this.source = t.pipe(N(this.disconnected$)), this.subscribe(), f;
-  }
-  disconnected() {
-    this.disconnected$.next();
-  }
-  reconnected() {
-    this.subscribe();
-  }
-  subscribe() {
-    this.isConnected && this.source.subscribe({
-      next: (t) => this.setValue(t),
-      error: (t) => console.error(t)
-    });
-  }
-}
-function m(e) {
-  return k(C)(e);
-}
-var T = Object.defineProperty, D = Object.getOwnPropertyDescriptor, $ = (e, t, r, s) => {
-  for (var i = s > 1 ? void 0 : s ? D(t, r) : t, h = e.length - 1, p; h >= 0; h--)
-    (p = e[h]) && (i = (s ? p(t, r, i) : p(i)) || i);
-  return s && i && T(t, r, i), i;
+import { css as f, LitElement as g, html as d } from "lit";
+import { query as w, customElement as x } from "lit/decorators.js";
+import { o as m } from "./observer.directive-566fb119.js";
+import { Subject as n, BehaviorSubject as v, startWith as k, switchMap as a, mergeMap as l, of as L, sampleTime as N, map as i, filter as u, tap as y, takeUntil as b } from "rxjs";
+import { f as j } from "./double-click-6a902698.js";
+import "lit/directive.js";
+import "lit/async-directive.js";
+var T = Object.defineProperty, C = Object.getOwnPropertyDescriptor, $ = (t, e, r, s) => {
+  for (var o = s > 1 ? void 0 : s ? C(e, r) : e, c = t.length - 1, h; c >= 0; c--)
+    (h = t[c]) && (o = (s ? h(e, r, o) : h(o)) || o);
+  return s && o && T(e, r, o), o;
 };
-const { BehaviorSubject: S, Subject: n, filter: u, map: o, mergeMap: c, of: U, sampleTime: O, startWith: R, switchMap: a, takeUntil: b, tap: _ } = rxjs, E = "wc-lit-todos";
-let l = class extends g {
+const D = "wc-lit-todos";
+let p = class extends g {
   constructor() {
-    super(...arguments), this.teardown$ = new n(), this.pageNo$ = new S(1), this.refresh$ = new n(), this.todos$ = this.refresh$.pipe(
-      R(void 0),
+    super(...arguments), this.teardown$ = new n(), this.pageNo$ = new v(1), this.refresh$ = new n(), this.todos$ = this.refresh$.pipe(
+      k(void 0),
       a(() => this.pageNo$),
-      a((e) => {
-        const t = this.createURL();
-        return t.searchParams.set("page", String(e)), fetch(t);
+      a((t) => {
+        const e = this.createURL();
+        return e.searchParams.set("page", String(t)), fetch(e);
       }),
-      c((e) => e.ok ? e.json() : U([]))
+      l((t) => t.ok ? t.json() : L([]))
     ), this.input$ = new n(), this.todo$ = this.input$.pipe(
-      O(100),
-      o((e) => e.data),
-      o(Number),
-      u((e) => !isNaN(e) && e > 0),
-      _((e) => console.log(e)),
-      a((e) => fetch(this.createURL(e))),
-      u((e) => e.ok),
-      c((e) => e.json())
+      N(100),
+      i((t) => t.data),
+      i(Number),
+      u((t) => !isNaN(t) && t > 0),
+      y((t) => console.log(t)),
+      a((t) => fetch(this.createURL(t))),
+      u((t) => t.ok),
+      l((t) => t.json())
     ), this.todoClick$ = new n();
   }
   disconnectedCallback() {
@@ -61,35 +38,35 @@ let l = class extends g {
   connectedCallback() {
     super.connectedCallback(), this.todoClick$.pipe(
       b(this.teardown$),
-      y(200),
-      c((e) => fetch(this.createURL(e), { method: "DELETE" }))
+      j(200),
+      l((t) => fetch(this.createURL(t), { method: "DELETE" }))
     ).subscribe({
       next: () => this.refresh$.next(),
-      error: (e) => console.error(e)
+      error: (t) => console.error(t)
     }), this.refresh$.pipe(
       a(
         () => fetch("https://api.api-ninjas.com/v1/loremipsum", {
           headers: { "X-Api-Key": "U7Wx9nE59Xx++ZqOvj1L0w==ILpTGo8Nj5y8XSR1" }
         })
       ),
-      u((e) => e.ok),
-      c((e) => e.json()),
-      o(({ text: e }) => e),
-      o((e) => e.slice(0, 255)),
+      u((t) => t.ok),
+      l((t) => t.json()),
+      i(({ text: t }) => t),
+      i((t) => t.slice(0, 255)),
       b(this.teardown$)
-    ).subscribe((e) => this.newTodoInput.value = e);
+    ).subscribe((t) => this.newTodoInput.value = t);
   }
-  createURL(e) {
-    return new URL(`/wp-json/todo/v1/todos${e ? "/" + e : ""}`, document.location.origin);
+  createURL(t) {
+    return new URL(`/wp-json/todo/v1/todos${t ? "/" + t : ""}`, document.location.origin);
   }
-  handleSubmit(e) {
-    e.preventDefault();
-    const t = e.target, r = new FormData(t);
+  handleSubmit(t) {
+    t.preventDefault();
+    const e = t.target, r = new FormData(e);
     fetch(this.createURL(), {
       body: r,
       method: "POST"
     }).then(() => {
-      this.refresh$.next(), t.reset();
+      this.refresh$.next(), e.reset();
     });
   }
   render() {
@@ -97,11 +74,11 @@ let l = class extends g {
       <ul>
         ${m(
       this.todos$.pipe(
-        o(
-          (e) => e.map(
-            (t) => d`<li @click=${this.todoClick$.next.bind(this.todoClick$, t.id)}>
-                  <small>${t.id}</small>
-                  <br />${t.text}
+        i(
+          (t) => t.map(
+            (e) => d`<li @click=${this.todoClick$.next.bind(this.todoClick$, e.id)}>
+                  <small>${e.id}</small>
+                  <br />${e.text}
                 </li>`
           )
         )
@@ -113,13 +90,13 @@ let l = class extends g {
         <button @click=${() => this.pageNo$.next(this.pageNo$.value + 1)}>Next</button>
       </nav>
       <h1>Todo Lookup</h1>
-      <input type="number" @input=${(e) => this.input$.next(e)} />
+      <input type="number" @input=${(t) => this.input$.next(t)} />
       ${m(
       this.todo$.pipe(
-        o(
-          (e) => d` <article>
-              <h3>${e.text}</h3>
-              <p>${new Date(e.created_at).toLocaleString()}</p>
+        i(
+          (t) => d` <article>
+              <h3>${t.text}</h3>
+              <p>${new Date(t.created_at).toLocaleString()}</p>
             </article>`
         )
       )
@@ -133,8 +110,8 @@ let l = class extends g {
       </form>`;
   }
 };
-l.styles = [
-  x`
+p.styles = [
+  f`
       :host {
         background-color: lightblue;
         display: block;
@@ -165,10 +142,10 @@ l.styles = [
 ];
 $([
   w("input#new-todo")
-], l.prototype, "newTodoInput", 2);
-l = $([
-  v(E)
-], l);
+], p.prototype, "newTodoInput", 2);
+p = $([
+  x(D)
+], p);
 export {
-  l as WcLitTodos
+  p as WcLitTodos
 };

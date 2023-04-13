@@ -1,7 +1,19 @@
 import { LitElement, css, html } from "lit";
 import { customElement, query } from "lit/decorators.js";
 import { observe } from "./lib/observer.directive";
-const { BehaviorSubject, Subject, filter, map, mergeMap, of, sampleTime, startWith, switchMap, takeUntil, tap } = rxjs;
+import {
+  BehaviorSubject,
+  Subject,
+  filter,
+  map,
+  mergeMap,
+  of,
+  sampleTime,
+  startWith,
+  switchMap,
+  takeUntil,
+  tap,
+} from "rxjs";
 import { filterForDoubleClick } from "@tronicboy/rxjs-operators";
 
 const tagName = "wc-lit-todos";

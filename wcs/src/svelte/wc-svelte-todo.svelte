@@ -1,7 +1,7 @@
 <svelte:options tag="wc-svelte-todo" />
 
 <script lang="ts">
-  const { filter, mergeMap, sampleTime, Subject, switchMap, takeUntil, startWith, map } = rxjs;
+  import { filter, mergeMap, sampleTime, Subject, switchMap, takeUntil, startWith, map } from "rxjs";
   import { onDestroy } from "svelte";
   import { SvelteSubject, SvelteBehaviorSubject } from "@tronicboy/svelte-rxjs-subjects";
   import { filterForDoubleClick } from "@tronicboy/rxjs-operators";

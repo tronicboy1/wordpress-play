@@ -1,22 +1,23 @@
 import { css as m, LitElement as d, html as p } from "lit";
 import { property as u, state as h, query as f } from "lit/decorators.js";
-var w = Object.defineProperty, $ = Object.getOwnPropertyDescriptor, r = (c, i, t, o) => {
-  for (var e = o > 1 ? void 0 : o ? $(i, t) : i, n = c.length - 1, l; n >= 0; n--)
-    (l = c[n]) && (e = (o ? l(i, t, e) : l(e)) || e);
-  return o && e && w(i, t, e), e;
+import { Subject as w, fromEvent as $, takeUntil as y, sampleTime as b, map as v, switchMap as k, mergeMap as C } from "rxjs";
+var _ = Object.defineProperty, g = Object.getOwnPropertyDescriptor, r = (c, o, t, s) => {
+  for (var e = s > 1 ? void 0 : s ? g(o, t) : o, l = c.length - 1, n; l >= 0; l--)
+    (n = c[l]) && (e = (s ? n(o, t, e) : n(e)) || e);
+  return s && e && _(o, t, e), e;
 };
-const { Subject: y, fromEvent: b, map: v, mergeMap: k, sampleTime: j, switchMap: C, takeUntil: _ } = rxjs, a = "litwc-hello-world";
-class s extends d {
+const a = "litwc-hello-world";
+class i extends d {
   constructor() {
-    super(...arguments), this.name = "User", this.clicks = 0, this.teardown$ = new y();
+    super(...arguments), this.name = "User", this.clicks = 0, this.teardown$ = new w();
   }
   firstUpdated() {
-    b(this.input, "input").pipe(
-      _(this.teardown$),
-      j(500),
+    $(this.input, "input").pipe(
+      y(this.teardown$),
+      b(500),
       v(() => this.input.value.trim()),
-      C((t) => fetch(`https://jsonplaceholder.typicode.com/todos/${t}`)),
-      k((t) => t.json())
+      k((t) => fetch(`https://jsonplaceholder.typicode.com/todos/${t}`)),
+      C((t) => t.json())
     ).subscribe((t) => this.todo = t);
   }
   disconnectedCallback() {
@@ -37,7 +38,7 @@ class s extends d {
     `;
   }
 }
-s.styles = [
+i.styles = [
   m`
       :host {
         text-align: center;
@@ -46,18 +47,18 @@ s.styles = [
 ];
 r([
   u()
-], s.prototype, "name", 2);
+], i.prototype, "name", 2);
 r([
   h()
-], s.prototype, "clicks", 2);
+], i.prototype, "clicks", 2);
 r([
   h()
-], s.prototype, "todo", 2);
+], i.prototype, "todo", 2);
 r([
   f("input")
-], s.prototype, "input", 2);
-window.customElements.get(a) || window.customElements.define(a, s);
+], i.prototype, "input", 2);
+window.customElements.get(a) || window.customElements.define(a, i);
 export {
-  s as WcHelloWorld,
+  i as WcHelloWorld,
   a as tagName
 };

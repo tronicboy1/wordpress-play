@@ -20,7 +20,7 @@ export default defineConfig({
       formats: ["es"],
     },
     rollupOptions: {
-      external: /^lit/,
+      external: [/^lit/, "rxjs"],
     },
   },
   plugins: [svelte({ compilerOptions: { customElement: true } })],

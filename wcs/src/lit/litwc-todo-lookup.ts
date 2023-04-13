@@ -1,6 +1,6 @@
 import { LitElement, css, html } from "lit";
 import { property, state, query } from "lit/decorators.js";
-const { Subject, fromEvent, map, mergeMap, sampleTime, switchMap, takeUntil } = rxjs;
+import { Subject, fromEvent, map, mergeMap, sampleTime, switchMap, takeUntil } from "rxjs";
 
 export const tagName = "litwc-hello-world";
 
