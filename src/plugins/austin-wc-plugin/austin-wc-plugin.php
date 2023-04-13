@@ -16,6 +16,7 @@ function register_wc_scripts()
   wp_register_script('wc-svelte-todo', $url . 'wc-svelte-todo.js', ['rxjs'], '0.0.0', true);
   wp_register_script('rxjs', 'https://unpkg.com/rxjs@^7/dist/bundles/rxjs.umd.min.js', []);
   wp_register_script('wc-svelte-posts', $url . 'wc-svelte-posts.js', ['rxjs'], '0.0.0', true);
+  wp_register_script('wc-lit-todos', $url . 'wc-lit-todos.js', ['rxjs'], '0.0.0', true);
 }
 add_action('init', 'register_wc_scripts');
 
@@ -43,6 +44,7 @@ function add_importmap_script()
 				"lit": "https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js",
 				"lit/": "https://cdn.jsdelivr.net/npm/lit@2.7.0/",
 				"@lit/reactive-element/decorators/": "https://cdn.jsdelivr.net/npm/@lit/reactive-element@1.6.1/decorators/",
+        "lit-html/": "https://unpkg.com/lit-html@2.7.2/",
 				"rxjs": "https://unpkg.com/rxjs@7.8.0/dist/bundles/rxjs.umd.min.js"
 			}
 		}

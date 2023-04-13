@@ -1,7 +1,7 @@
 <svelte:options tag="wc-svelte-todo" />
 
 <script lang="ts">
-  const { filter, mergeMap, sampleTime, Subject, switchMap, takeUntil, tap, startWith, map } = rxjs;
+  const { filter, mergeMap, sampleTime, Subject, switchMap, takeUntil, startWith, map } = rxjs;
   import { onDestroy } from "svelte";
   import { SvelteSubject, SvelteBehaviorSubject } from "@tronicboy/svelte-rxjs-subjects";
   import { filterForDoubleClick } from "@tronicboy/rxjs-operators";
@@ -23,7 +23,6 @@
   const todos$: Observable<Todo[]> = refresh$.pipe(
     startWith(undefined),
     switchMap(() => pageNo$),
-    tap((res) => console.log(res)),
     switchMap((pageNo) => {
       const url = createURL("/wp-json/todo/v1/todos");
       url.searchParams.set("page", String(pageNo));
@@ -39,8 +38,7 @@
     sampleTime(500),
     switchMap((input) => fetch(createURL(`/wp-json/todo/v1/todos/${input}`))),
     filter((response) => response.ok),
-    mergeMap((result) => result.json() as Promise<Todo>),
-    tap((res) => console.log(res))
+    mergeMap((result) => result.json() as Promise<Todo>)
   );
 
   const click$ = new Subject<number>();

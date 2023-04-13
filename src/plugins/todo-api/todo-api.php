@@ -12,7 +12,6 @@ include('worker.php');
 include('controller.php');
 
 use Todo\TodoDbWorker;
-use Todo\TodoController;
 
 function setup_todo_table()
 {
@@ -20,8 +19,6 @@ function setup_todo_table()
   $worker->setup_table();
 }
 register_activation_hook(__FILE__, 'setup_todo_table');
-
-add_action('init', 'setup_todo_table');
 
 function destroy_todo_table()
 {
