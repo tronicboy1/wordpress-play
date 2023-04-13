@@ -1,6 +1,5 @@
 import { LitElement, css, html } from "lit";
 import { customElement, query } from "lit/decorators.js";
-import { observe } from "./lib/observer.directive";
 import {
   BehaviorSubject,
   Subject,
@@ -15,6 +14,7 @@ import {
   tap,
 } from "rxjs";
 import { filterForDoubleClick } from "@tronicboy/rxjs-operators";
+import { observe } from "@tronicboy/lit-observe-directive";
 
 const tagName = "wc-lit-todos";
 
@@ -41,10 +41,11 @@ export class WcLitTodos extends LitElement {
     mergeMap((result) => (result.ok ? (result.json() as Promise<Todo[]>) : of<Todo[]>([])))
   );
 
-  private input$ = new Subject<InputEvent>();
+  @query("input#lookup") lookup!: HTMLInputElement;
+  private input$ = new Subject<Event>();
   private todo$ = this.input$.pipe(
     sampleTime(100),
-    map((event) => event.data),
+    map(() => this.lookup.value),
     map(Number),
     filter((id) => !isNaN(id) && id > 0),
     tap((id) => console.log(id)),
@@ -122,7 +123,7 @@ export class WcLitTodos extends LitElement {
         <button @click=${() => this.pageNo$.next(this.pageNo$.value + 1)}>Next</button>
       </nav>
       <h1>Todo Lookup</h1>
-      <input type="number" @input=${(event: InputEvent) => this.input$.next(event)} />
+      <input id="lookup" type="number" @input=${(event: InputEvent) => this.input$.next(event)} />
       ${observe(
         this.todo$.pipe(
           map(

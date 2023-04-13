@@ -2,16 +2,13 @@
 
 /**
  * Plugin Name:       Todo Api Block
- * Description:       Example block scaffolded with Create Block tool – no build step required.
+ * Description:       A simple Todo API coupled with a web component block component
  * Requires at least: 6.1
  * Requires PHP:      7.0
  * Version:           0.1.0
- * Author:            The WordPress Contributors
- * License:           GPL-2.0-or-later
- * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
+ * Author:            Austin J. Mayer
+ * License:           MIT
  * Text Domain:       todo-api-block
- *
- * @package           create-block
  */
 
 namespace Todo;
@@ -87,3 +84,12 @@ function destroy_todo_table()
 }
 register_deactivation_hook(__FILE__, '\destroy_todo_table');
 add_action('rest_api_init', __NAMESPACE__ . '\TodoController::init');
+
+function add_type_module_tag(string $tag, string $handle, string $src): string
+{
+	if (str_contains($handle, 'lit') || str_contains($handle, 'svelte')) {
+		return "<script type=\"module\" src=\"$src\" defer></script>";
+	}
+	return $tag;
+}
+add_filter('script_loader_tag', __NAMESPACE__ . '\add_type_module_tag', 10, 3);

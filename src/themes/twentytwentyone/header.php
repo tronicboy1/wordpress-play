@@ -30,7 +30,6 @@
 	do_action('render_wc_scripts', 'wc-svelte');
 	do_action('render_wc_scripts', 'wc-svelte-todo');
 	do_action('render_wc_scripts', 'wc-svelte-posts');
-	do_action('render_wc_scripts', 'wc-lit-todos');
 	do_action('render_wc_scripts', 'wc-lit-websocket');
 	?>
 </head>

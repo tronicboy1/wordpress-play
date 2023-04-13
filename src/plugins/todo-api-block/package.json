@@ -18,6 +18,8 @@
     "build:watch": "vite build --watch"
   },
   "dependencies": {
+    "@tronicboy/lit-observe-directive": "^0.0.6",
+    "@tronicboy/rxjs-operators": "^0.0.3",
     "lit": "^2.6.1"
   },
   "devDependencies": {

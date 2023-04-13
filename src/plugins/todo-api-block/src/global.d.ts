@@ -13,6 +13,9 @@ declare global {
       callbacks: {
         edit: () => ReactElement;
         save: () => ReactElement;
+        title: string;
+        category: string;
+        icon: string;
       }
     ) => void;
   }
@@ -21,4 +24,4 @@ declare global {
   }
 }
 
-export {}
+export {};

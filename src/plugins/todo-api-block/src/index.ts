@@ -1,10 +1,13 @@
-import "./my-element";
+import "./wc-lit-todos";
 
 function registerBlock(blocks: WpBlocks, element: WpElement) {
   const el = element.createElement;
   blocks.registerBlockType("create-block/todo-api-block", {
-    edit: () => el("my-element", null, ""),
-    save: () => el("my-element", null, "Save"),
+    edit: () => el("wc-lit-todos", null, ""),
+    save: () => el("wc-lit-todos", null, ""),
+    title: "Todo API",
+    category: "widgets",
+    icon: "menu",
   });
 }
 
