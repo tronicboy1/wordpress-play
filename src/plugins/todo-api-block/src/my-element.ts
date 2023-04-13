@@ -22,13 +22,11 @@ export class MyElement extends LitElement {
   count = 0;
 
   render() {
-    return html`
-      <slot></slot>
+    return html` <slot></slot>
       <div class="card">
         <button @click=${this._onClick} part="button">count is ${this.count}</button>
       </div>
-      <p class="read-the-docs">${this.docsHint}</p>
-    `;
+      <p class="read-the-docs">${this.docsHint}</p>`;
   }
 
   private _onClick() {
@@ -104,8 +102,7 @@ export class MyElement extends LitElement {
       button {
         background-color: #f9f9f9;
       }
-    }
-  `;
+    }`;
 }
 
 declare global {

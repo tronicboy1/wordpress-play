@@ -1,8 +1,0 @@
-{
-	"name": "todo-api-block-2",
-	"version": "0.1.0",
-	"description": "Example block scaffolded with Create Block tool – no build step required.",
-	"author": "The WordPress Contributors",
-	"license": "GPL-2.0-or-later",
-	"scripts": {}
-}

@@ -1,28 +1,26 @@
 import { css as d, LitElement as f, html as m } from "lit";
 import { property as a, customElement as p } from "lit/decorators.js";
-var u = Object.defineProperty, h = Object.getOwnPropertyDescriptor, s = (r, o, e, i) => {
-  for (var t = i > 1 ? void 0 : i ? h(o, e) : o, l = r.length - 1, c; l >= 0; l--)
-    (c = r[l]) && (t = (i ? c(o, e, t) : c(t)) || t);
-  return i && t && u(o, e, t), t;
+var u = Object.defineProperty, h = Object.getOwnPropertyDescriptor, s = (n, e, t, i) => {
+  for (var o = i > 1 ? void 0 : i ? h(e, t) : e, l = n.length - 1, c; l >= 0; l--)
+    (c = n[l]) && (o = (i ? c(e, t, o) : c(o)) || o);
+  return i && o && u(e, t, o), o;
 };
-let n = class extends f {
+let r = class extends f {
   constructor() {
     super(...arguments), this.docsHint = "Click on the Vite and Lit logos to learn more", this.count = 0;
   }
   render() {
-    return m`
-      <slot></slot>
+    return m` <slot></slot>
       <div class="card">
         <button @click=${this._onClick} part="button">count is ${this.count}</button>
       </div>
-      <p class="read-the-docs">${this.docsHint}</p>
-    `;
+      <p class="read-the-docs">${this.docsHint}</p>`;
   }
   _onClick() {
     this.count++;
   }
 };
-n.styles = d`
+r.styles = d`
     :host {
       max-width: 1280px;
       margin: 0 auto;
@@ -91,23 +89,21 @@ n.styles = d`
       button {
         background-color: #f9f9f9;
       }
-    }
-  `;
+    }`;
 s([
   a()
-], n.prototype, "docsHint", 2);
+], r.prototype, "docsHint", 2);
 s([
   a({ type: Number })
-], n.prototype, "count", 2);
-n = s([
+], r.prototype, "count", 2);
+r = s([
   p("my-element")
-], n);
-function b(r, o) {
-  console.log("register callback", r, o);
-  const e = o.createElement;
-  r.registerBlockType("create-block/todo-api-block", {
-    edit: () => e("my-element", null, "Edit"),
-    save: () => e("my-element", null, "Save")
+], r);
+function b(n, e) {
+  const t = e.createElement;
+  n.registerBlockType("create-block/todo-api-block", {
+    edit: () => t("my-element", null, ""),
+    save: () => t("my-element", null, "Save")
   });
 }
 b(window.wp.blocks, window.wp.element);

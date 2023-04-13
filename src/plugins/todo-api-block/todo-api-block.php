@@ -57,9 +57,9 @@ function create_block_todo_api_block_init()
 
 	register_block_type(
 		$dir,
-		array(
-			'editor_script' => 'create-block-todo-api-block-editor-lit',
-		)
+		[
+			'script' => 'create-block-todo-api-block-editor-lit',
+		]
 	);
 }
 add_action('init', 'create_block_todo_api_block_init');

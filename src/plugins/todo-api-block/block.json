@@ -5,7 +5,7 @@
 	"version": "0.1.0",
 	"title": "Todo API",
 	"category": "widgets",
-	"icon": "smiley",
+	"icon": "menu",
 	"description": "Example static block scaffolded with Create Block tool.",
 	"supports": {
 			"html": false
