@@ -29,7 +29,7 @@ add_action('render_wc_scripts', 'render_wc_scripts');
 function add_type_module_tag(string $tag, string $handle, string $src): string
 {
   if (str_contains($handle, 'lit') || str_contains($handle, 'svelte')) {
-    return "<script type=\"module\" src=\"$src\"></script>";
+    return "<script type=\"module\" src=\"$src\" defer></script>";
   }
   return $tag;
 }

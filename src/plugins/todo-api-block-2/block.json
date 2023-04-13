@@ -1,0 +1,14 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "create-block/todo-api-block-2",
+	"version": "0.1.0",
+	"title": "Todo Api Block 2",
+	"category": "widgets",
+	"icon": "smiley",
+	"description": "Example block scaffolded with Create Block tool – no build step required.",
+	"supports": {
+		"html": false
+	},
+	"textdomain": "todo-api-block-2"
+}
