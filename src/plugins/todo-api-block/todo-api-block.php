@@ -14,6 +14,13 @@
  * @package           create-block
  */
 
+namespace Todo;
+
+include('worker.php');
+include('controller.php');
+
+use Todo\TodoDbWorker;
+
 /**
  * Registers all block assets so that they can be enqueued through the block editor
  * in the corresponding context.
@@ -37,23 +44,7 @@ function create_block_todo_api_block_init()
 		filemtime("$dir/$index_js"),
 		true
 	);
-	wp_set_script_translations('create-block-todo-api-block-editor-lit', 'todo-api-block');
-
-	// $editor_css = 'editor.css';
-	// wp_register_style(
-	// 	'create-block-todo-api-block-editor',
-	// 	plugins_url( $editor_css, __FILE__ ),
-	// 	array(),
-	// 	filemtime( "$dir/$editor_css" )
-	// );
-
-	// $style_css = 'style.css';
-	// wp_register_style(
-	// 	'create-block-todo-api-block-block',
-	// 	plugins_url( $style_css, __FILE__ ),
-	// 	array(),
-	// 	filemtime( "$dir/$style_css" )
-	// );
+	wp_set_script_translations('create-block-todo-api-block-editor-lit', __NAMESPACE__ . '\todo-api-block');
 
 	register_block_type(
 		$dir,
@@ -62,9 +53,9 @@ function create_block_todo_api_block_init()
 		]
 	);
 }
-add_action('init', 'create_block_todo_api_block_init');
+add_action('init', __NAMESPACE__ . '\create_block_todo_api_block_init');
 
-function add_importmap_script_admin()
+function add_importmap_script()
 {
 ?>
 	<script type="importmap">
@@ -80,4 +71,19 @@ function add_importmap_script_admin()
 	</script>
 <?php
 }
-add_action('admin_head', 'add_importmap_script_admin', 0);
+add_action('admin_head', __NAMESPACE__ . '\add_importmap_script');
+
+function setup_todo_table()
+{
+	$worker = new TodoDbWorker();
+	$worker->setup_table();
+}
+register_activation_hook(__FILE__, __NAMESPACE__ . '\setup_todo_table');
+
+function destroy_todo_table()
+{
+	$worker = new TodoDbWorker();
+	$worker->destroy_table();
+}
+register_deactivation_hook(__FILE__, '\destroy_todo_table');
+add_action('rest_api_init', __NAMESPACE__ . '\TodoController::init');
