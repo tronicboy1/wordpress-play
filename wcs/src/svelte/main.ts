@@ -1,2 +1,2 @@
-import './wc-svelte.svelte'
-import './wc-svelte-todo.svelte'
+import "./wc-svelte.svelte";
+import "./wc-svelte-todo.svelte";

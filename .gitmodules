@@ -1,3 +1,6 @@
 [submodule "src/plugins/todo-api-block"]
 	path = src/plugins/todo-api-block
 	url = git@github.com:tronicboy1/todo-api-block.git
+[submodule "src/plugins/wc-attributes-demo"]
+	path = src/plugins/wc-attributes-demo
+	url = git@github.com:tronicboy1/wc-attributes-demo.git

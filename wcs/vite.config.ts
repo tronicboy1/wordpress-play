@@ -14,7 +14,6 @@ export default defineConfig({
         "src/lit/lit-hello.ts",
         "src/svelte/wc-svelte-todo.svelte",
         "src/svelte/wc-svelte-posts.svelte",
-        "src/lit/wc-lit-todos.ts",
         "src/lit/wc-lit-websocket.ts",
       ],
       formats: ["es"],

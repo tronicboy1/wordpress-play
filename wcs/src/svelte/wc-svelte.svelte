@@ -2,10 +2,11 @@
 
 <script lang="ts">
   export let name = "User";
+  import * as loc from "@angular/localize/init";
 </script>
 
 <h1>Svelte WC</h1>
-<p>Hello {name}</p>
+<p>{loc.$localize`Hello ${name}`}</p>
 
 <style>
   * {
